@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<!-- 見映えを整えるためにcssを適用 -->
+		<link rel="stylesheet" href="style.css" >
+		<!-- CDNを使ってVuejsをインストールしている -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>クリックしたらカウントアップ</h2>
+		<!-- Vuejsと繋がる要素 -->
+		<div id="app">
+			<p> {{count}}回</p>
+			<button v-on:click="countUp">カウント</button>
+		</div>
+		<!-- Vuejsと繋がる要素 -->
+		
+		<!-- Vuejsのプログラム -->
+		<script>
+		// Vueインスタンス-------
+		new Vue({
+			el: "#app",
+			data: {
+				count:0
+			},
+			methods: {
+				countUp: function() {
+					this.count++;
+				}
+			}
+		})
+		// Vueインスタンス------
+		</script>
+		
+	</body>
+</html>
+
