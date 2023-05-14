@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+        "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+    </head>
+
+    <body>
+    <h2>チェックボックスのONOFFを調べる例</h2>
+    <p>旅行で行きたい場所チェック</p>
+    <div id="app">
+        <ol>
+            <li v-for="pref in pref_list">
+                <input type="checkbox" v-model="check" :value="pref">
+                {{ pref }}
+            </li>
+        </ol>
+        <p>チェックボックスは{{ check }}</p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                pref_list: [
+                    '北海道',
+                    '東北',
+                    '関東',
+                    '東海',
+                    '甲信越',
+                    '中部',
+                    '近畿',
+                    '北陸',
+                    '中国・四国',
+                    '九州・沖縄'
+                ],
+                check:[]
+            }
+        })
+    </script>
+    </body>
+</html>
