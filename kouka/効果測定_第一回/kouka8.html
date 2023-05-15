@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+</head>
+<body>
+    <h2>配列データを、テーブルで表示する例</h2>
+    <div id="app">
+        <h3>東北地方基本情報</h3>
+        <table border="1">
+            <thead>
+                <!-- テーブルヘッダーのくり返し -->
+                <tr>
+                    <th v-for="head in tohoku_header">{{ head }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 1行のくり返し -->
+                <tr v-for="item in tohokuObj">
+                <!-- 1データのくり返し -->
+                    <td v-for="data in item"> {{ data }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tohoku_header: [
+                    '県名','県庁所在地','県の人口','県庁所在地の人口'
+                ],
+                tohokuObj: [
+                    { name: '青森県',pre_cap: '青森市', pop1: 142.9, pop2: 28.76 },
+                    { name: '岩手県',pre_cap: '盛岡市', pop1: 122.9, pop2: 29.76 },
+                    { name: '秋田県',pre_cap: '秋田市', pop1: 96.95, pop2: 31.58 },
+                    { name: '宮城県',pre_cap: '仙台市', pop1: 230.6, pop2:108.2 },
+                    { name: '山形県',pre_cap: '山形市', pop1: 108.0, pop2:25.38 },
+                    { name: '福島県',pre_cap: '福島市', pop1: 184.8, pop2:29.42 },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
