@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+<h2>クリックしたら、四則演算する例</h2>
+<div id="app">
+    <p>
+        数１ = <input v-model.number="number1"><br>
+        数２ = <input v-model.number="number2">
+    </p>
+    <p>実行する演算</p>
+    <label v-for="operation in operations" :key="operation.calc">
+        <input :value="operation.calc" type="radio" v-model="operator">{{ operation.name }}
+    </label>
+    <button v-on:click="calculate">計算</button>
+    <hr>
+    <h3>計算結果</h3>
+    <p>{{ number1 }} {{ operator }} {{ number2 }} = {{ answer }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            number1: 0,
+            number2: 0,
+            answer: 0,
+            operator: '',
+            operations: [
+                { name: "たし算", calc: '+' },
+                { name: "ひき算", calc: '-' },
+                { name: "かけ算", calc: '*' },
+                { name: "わり算", calc: '/' },
+                { name: "あまり", calc: '%' }
+            ]
+        },
+        methods: {
+            calculate: function () {
+                switch (this.operator) {
+                    case '+':
+                        this.answer = this.number1 + this.number2;
+                        break;
+                    case '-':
+                        this.answer = this.number1 - this.number2;
+                        break;
+                    case '*':
+                        this.answer = this.number1 * this.number2;
+                        break;
+                    case '/':
+                        this.answer = this.number1 / this.number2;
+                        break;
+                    case '%':
+                        this.answer = this.number1 % this.number2;
+                        break;
+                    default:
+                        this.answer = '';
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
