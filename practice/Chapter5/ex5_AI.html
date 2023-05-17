@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+<h2>クリックしたら、四則演算する例</h2>
+<div id="app">
+    <p v-for="(input, index) in inputs" :key="index">
+        {{ input.label }} = <input v-model.number="input.value">
+    </p>
+    <button v-for="operation in operations" :key="operation" v-on:click="calculate(operation)">
+        {{ operation }}
+    </button>
+    <hr>
+    <h3>計算結果</h3>
+    <p>{{ calculation }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            inputs: [
+                { label: '数１', value: 0 },
+                { label: '数２', value: 0 }
+            ],
+            calculation: '',
+            operations: ['たし算', 'ひき算', 'かけ算', 'わり算', 'あまり']
+        },
+        methods: {
+            calculate: function (operation) {
+                switch (operation) {
+                    case 'たし算':
+                        this.calculation = this.inputs[0].value + ' + ' + this.inputs[1].value + ' = ' +
+                            (this.inputs[0].value + this.inputs[1].value);
+                        break;
+                    case 'ひき算':
+                        this.calculation = this.inputs[0].value + ' - ' + this.inputs[1].value + ' = ' +
+                            (this.inputs[0].value - this.inputs[1].value);
+                        break;
+                    case 'かけ算':
+                        this.calculation = this.inputs[0].value + ' × ' + this.inputs[1].value + ' = ' +
+                            (this.inputs[0].value * this.inputs[1].value);
+                        break;
+                    case 'わり算':
+                        this.calculation = this.inputs[0].value + ' ÷ ' + this.inputs[1].value + ' = ' +
+                            (this.inputs[0].value / this.inputs[1].value);
+                        break;
+                    case 'あまり':
+                        this.calculation = this.inputs[0].value + ' % ' + this.inputs[1].value + ' = ' +
+                            (this.inputs[0].value % this.inputs[1].value);
+                        break;
+                    default:
+                        this.calculation = '';
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
