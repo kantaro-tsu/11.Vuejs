@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>効果測定</title>
+        <link rel="stylesheet" href="style.css" >
+        <script src=
+        "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+        </script>
+    </head>
+    <body>
+        <h3>ボタンを押してリストが増減するとき、アニメーションする例</h3>
+        <div id="app">
+            <ol>
+                <transition-group>
+                <li v-for="(city, index) in cityList" :key="index">
+                    {{ city }}
+                </li>
+                </transition-group>
+            </ol>
+            <p>
+                都市名 : <input type="text" v-model="addItem">
+                <button v-on:click="addList(addItem)">追加</button>
+            </p>
+            <p>
+                番号 : <input type="number" v-model="removeNum">
+                <button v-on:click="remList(index)">削除</button>
+            </p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                cityList: ['札幌市', '青森市', '仙台市'],
+                addItem: '',
+                removeNum: ''
+                },
+                methods: {
+                    addList: function(val) {
+                        this.cityList.push(val);
+                        this.addItem = ''
+                    },
+                    remList: function(val) {
+                        this.cityList.splice(val,1)
+                        this.removeNum = ''
+                    }
+                }
+            })
+        </script>
+        <style>
+            .v-enter-active, .v-leave-active {
+                transition: 0.5s;
+            }
+            .v-enter, .v-leave-to {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+        </style>
+    </body>
+</html>

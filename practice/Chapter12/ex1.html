@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+        "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+    </head>
+    <body>
+        <div id="app">
+            <h2>コンポーネントを作って表示する例</h2>
+                <my-component count-hello="こんにちは!"></my-component>
+                <my-component count-hello="Hello!"></my-component>
+                <my-component count-hello="Bonjour!"></my-component>
+        </div>
+        <script>
+            let MyComponent = {
+                // HTMLにどのように表示されるかを指定
+                template: '<p class="my-comp">{{ countHello }}</p>',
+                props: {
+                    countHello: String
+                }
+            }
+            new Vue({
+                el: '#app',
+                components: {
+                    'my-component': MyComponent
+                }
+            })
+        </script>
+        <style>
+            .my-comp {
+                width:300px;
+                background-color: blanchedalmond;
+                border:solid;
+                border-color: burlywood;
+                border-radius: 8px;
+                padding: 8px;
+            }
+        </style>
+    </body>
+</html>
