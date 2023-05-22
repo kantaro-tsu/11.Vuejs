@@ -18,6 +18,7 @@
             </tr>
             <tr v-for="pref in prefecture">
                 <td>{{ pref.name }}</td>
+                <td>{{ pref.capital }}</td>
                 <td>{{ pref.population }} 万人</td>
             </tr>
         </table>
@@ -27,12 +28,12 @@
         el: '#app',
         data: {
             prefecture: [
-            {name: '青森県', population: 124.9},
-            {name: '岩手県', population: 122.9},
-            {name: '秋田県', population: 96.6},
-            {name: '宮城県', population: 230.6},
-            {name: '山形県', population: 108},
-            {name: '福島県', population: 184.8}
+            {name: '青森県',capital:'青森市', population: 124.9},
+            {name: '岩手県',capital:'盛岡市', population: 122.9},
+            {name: '秋田県',capital:'秋田市', population: 96.6},
+            {name: '宮城県',capital:'仙台市', population: 230.6},
+            {name: '山形県',capital:'山形市', population: 108},
+            {name: '福島県',capital:'福島市', population: 184.8}
             ]
         }
         })

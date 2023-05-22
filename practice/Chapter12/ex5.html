@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>vue.js 演習問題</title>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+    </head>
+
+    <body>
+    <h2>propsで値を渡す</h2>
+    <div id="app">
+        <ul>各国のあいさつ
+            <li>日本<br>
+                <jap-component :count-hello="'田中角栄さん。こんにちは！！'"></jap-component>
+            </li>
+            <li>アメリカ<br>
+                <ame-component :count-hello="'Hello!!Abraham Lincoln'"></ame-component>
+            </li>
+            <li>フランス<br>
+                <fra-component :count-hello="'Bounjour!!Jeanne d`Arc'"></fra-component>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let GreetingJP = {
+            template: '<p class="my-comp">{{ countHello }}</p>',
+            props: {
+                countHello: String
+            }
+        }
+        let GreetingEN = {
+            template: '<p class="my-comp">{{ countHello }}</p>',
+            props: {
+                countHello: String
+            }
+        }
+        let GreetingFR = {
+            template: '<p class="my-comp">{{ countHello }}</p>',
+            props: {
+                countHello: String
+            }
+        }
+        new Vue({
+            el: '#app',
+            components: {
+                'jap-component': GreetingJP,
+                'ame-component': GreetingEN,
+                'fra-component': GreetingFR
+            }
+        })
+    </script>
+    <style>
+        .my-comp {
+            width: 300px;
+            background-color: #ffffe0;
+            border: solid;
+            border-color: darkorange;
+            border-radius: 8px;
+            padding: 8px;
+        }
+    </style>
+    </body>
+    </html>
