@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script> <!-- microCMS-SDKのCDN -->
+    <title>MicroCMSとVueの連携</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="item in news">
+            <p>{{ item.category.name }} {{ item.title }}</p>
+            <p v-html="item.content"></p>
+        </div>
+    </div>
+    <script>
+        const client = microcms.createClient({
+            serviceDomain: "t074o1i29j",  // 解説時に設定したドメイン名を設定する
+            apiKey: 'sAAbT8i6NWCd0VTYGxbLEH8gM99UhHUk0Rl8', // APIキーを設定する
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                news: [],
+            },
+            mounted() {
+                this.fetchNews();
+            },
+            methods: {
+                // microCMSに登録したニュース一覧を取得する処理
+                fetchNews: function () {
+                    client
+                        .get({
+                            endpoint: 'news',
+                        })
+                        .then((res) => this.news = res.contents);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

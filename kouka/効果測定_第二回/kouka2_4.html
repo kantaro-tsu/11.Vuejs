@@ -1,0 +1,96 @@
+<!-- kouka2_3を拡張して作成 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+
+</head>
+
+<body>
+    <h2>コンポーネントを作って表示する例</h2>
+    <div id="app">
+        <div v-for="list in prefList">
+            <my-component :pref="list.name" :population="list.popu"></my-component>
+        </div>
+    </div>
+
+    <script>
+        let MyComponent = {
+            template: '<p :class="compClass">{{ pref }}<br>人口:{{ population }}万人<button v-on:click="countAdd()">千人増加</button></p>',
+            props: {
+                pref: String,
+                population: Number
+            }
+        }
+
+        new Vue({
+            el: '#app',
+            data: {
+                prefList: [
+                    {name:'青森県',popu:125.1},
+                    {name:'宮城県',popu:230.7},
+                    {name:'岩手県',popu:123.0},
+                    {name:'静岡県',popu:363.9}
+                ]
+            },
+            computed: {
+                compClass: function() {
+                    if(this.pref == '青森県') {
+                        return 'aomori-comp';
+                    } else if(this.pref == '宮城県') {
+                        return 'miyagi-comp';
+                    } else if(this.pref == '岩手県') {
+                        return 'iwate-comp';
+                    } else if(this.pref == '静岡県') {
+                        return 'shizuoka-comp';
+                    }
+                }
+            },
+            methods: {
+                countAdd: function() {
+                    this.population += 1;
+                }
+            },
+            components: {
+                'my-component': MyComponent
+            }
+        })
+    </script>
+
+    <style>
+        p {
+            width: 300px;
+            border: solid;
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        .aomori-comp {
+            background-color: #F0FFF0;
+            border-color: darkgreen;
+        }
+
+        .miyagi-comp {
+            background-color: #FFF0F5;
+            border-color: orange;
+        }
+
+        .iwate-comp {
+            background-color: #F5F5DC;
+            border-color: burlywood;
+        }
+
+        .shizuoka-comp {
+            background-color: #E0FFFF;
+            border-color: #0000CD;
+        }
+    </style>
+</body>
+
+</html>

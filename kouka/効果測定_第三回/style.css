@@ -1,0 +1,611 @@
+@charset "UTF-8";
+
+html {
+/* フォントサイズを100%で指定しておくことで、ユーザーがブラウザで設定したフォントサイズが正しく反映されます */
+    font-size: 100%;
+}
+
+body {
+    font-family: 'Lora', serif;
+    font-family: 'M PLUS 1p', sans-serif;
+    font-family: 'Zen Antique', serif;
+}
+
+a {
+    color: #2d2d2d;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+ul {
+    list-style: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+/* ---------------header------------- */
+
+#header {
+    align-items: center;
+    margin: 30px auto 30px auto;
+}
+
+.site-title {
+    position:relative;
+    top:-50px;
+}
+
+.site-title img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.site-title h1 {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:0;
+    margin:0;
+    font-size:5rem;
+    color: lightgreen;
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+                -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+                0px 1px 0 #FFF,  0-1px 0 #FFF,
+                -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+
+
+.search-area {
+    max-width: 90vw;
+    background-color:#b3e3b9;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border: 1px solid green;
+}
+
+.search-area ul {
+    display: flex;
+    justify-content: center;
+}
+.search-area li {
+    font-size: clamp(10px,2vw,20px);
+    margin: 0px 1rem;
+}
+
+.search-area li button:hover {
+    color: red;
+    transform: scale(1.3,1.3);
+}
+
+.search-area li button {
+    color: green
+}
+
+.search-area form {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.search-area form input {
+    margin-right: 2rem;
+    width: 40%;
+    border: 1px solid green;
+    background-color: #FFF;
+}
+
+.search-area form button {
+    color: white;
+    padding: 0.2rem 2rem;
+    border: 1px solid green;
+    background-color: green;
+
+}
+
+#googleImg {
+    margin: 0 1rem 0.3rem 0;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+}
+
+/* ---------------body------------- */
+
+.container {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+}
+
+.container h2 {
+    font-size: 1.25rem;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+/* --------------left------------ */
+.left {
+    flex-basis: 20%;
+    width: 20%;
+    color: green;
+}
+
+#aveList {
+    background-color: #b3e3b9;
+    border: 1px solid green;
+}
+
+.left .heros a {
+    display: flex;
+}
+
+.left li {
+    padding: 1rem;
+    font-size: clamp(5px,2vw,15px);
+}
+
+.left .heros img {
+    max-width: 10%;
+    border-radius: 50%;
+    border: 1px solid gray;
+    margin-right: 1rem;
+}
+
+.left li p {
+    color: green;
+    display: flex;
+    align-items: center;
+}
+
+.left li p:hover {
+    color: red;
+}
+
+.left li a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.adTrans {
+    position: relative;
+    margin: 2em auto;
+    border: 10px solid #ffffff;
+	box-shadow:0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+.adImage {
+    height: 400px;
+}
+
+.adImage img {
+    object-fit: cover;
+    height: 400px;
+}
+
+.adButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*------------btn-------------- */
+
+.arrow_btn_l {
+    display: block;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #b3e3b9;
+    opacity: 0.5;
+    color: #fff; /* テキストの色 */
+    transition: background-color 1s, box-shadow 1.5s;
+}
+  .arrow_btn_l::before { /* 矢印の表示設定 */
+    content: "";
+    position: absolute;
+    margin-top: 10px;
+    top: 5px;
+    bottom: 0;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(230deg);
+}
+.arrow_btn_l:hover { /* マウスオーバー時のスタイル */
+    background-color: #b3e3b9; /* マウスオーバー時の背景色 */
+    opacity: 1;
+}
+
+.arrow_btn_r {
+    display: block;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #b3e3b9;
+    opacity: 0.5;
+    color: #fff; /* テキストの色 */
+    transition: background-color 1s, box-shadow 1.5s;
+}
+  .arrow_btn_r::before { /* 矢印の表示設定 */
+    content: "";
+    position: absolute;
+    margin-top: 10px;
+    top: 5px;
+    bottom: 0;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+}
+.arrow_btn_r:hover { /* マウスオーバー時のスタイル */
+    background-color: #b3e3b9;
+    opacity: 1;  /* マウスオーバー時の背景色 */
+}
+
+/* --------------main--------------- */
+
+.main {
+    flex-basis: 60%;
+    width: 60%;
+    padding: 0.5rem;
+}
+
+.spa-area {
+    margin: 50px 0px 50px 0px;
+}
+
+#map {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#spaTab input {
+    display: none;
+}
+
+#tabCount {
+    display: flex;
+}
+
+#tabCount li {
+    flex: 1;
+    font-size: clamp(70%,2vw,100%); /* レスポンシブ文字サイズを可変に */
+}
+
+#tabCount li label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#tabSection {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 70%;
+    overflow: hidden;
+    border-width: 0px 1px 1px 1px;  /* 上側と左右に枠線を引く */
+    border-style: solid;            /* 枠線の種類は「実線」 */
+    border-color: black;            /* 枠線の色は「黒」 */ 
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+/* ▼タブ(共通装飾＋非選択状態の装飾) */
+.tab {
+    display: inline-block;          /* インラインブロック化 */
+    border-width: 1px 1px 1px 1px;  /* 上側と左右に枠線を引く */
+    border-style: solid;            /* 枠線の種類は「実線」 */
+    border-color: black;            /* 枠線の色は「黒」 */ 
+    padding: 0.5em 0.75em;            /* 内側の余白量 */
+    font-weight: bold;              /* タブの文字を太字にする */
+    color: black;                   /* タブの文字色：黒色 */
+    background-color: #b3e3b9;     /* タブの(非選択状態の)背景色：灰色 */
+}
+
+/* ▼タブにマウスポインタが載った際の装飾 */
+.tab:hover {
+    color:          red;       /* タブの文字色：緑色 */
+    background-color: #ffffcc;   /* タブの背景色：淡い緑色 */
+    cursor: pointer;             /* マウスポインタの形状を「指(指し示す形)」にする */
+}
+
+ /* ▼選択状態のタブ(＝チェックが入っているラジオボタンの隣にあるタブの装飾) */
+input:checked + .tab {
+    color: green;  
+    border-width: 1px 1px 0px 1px;  /* 上側と左右に枠線を引く */                /* タブの文字色：赤色 */
+    background-color: #ffff;     /* タブの背景色：淡い黄色 */
+}
+
+.sub-area {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.content .contImg {
+    width: 50%;
+}
+
+.content .contText {
+    width: 50%;
+    padding: 0 7%;
+}
+
+#scriptTwo {
+    flex-direction:  row-reverse;
+}
+
+/* -------------right-------------- */
+
+.right {
+    flex-basis: 20%;
+    width: 20%;
+    padding: 0.25rem;
+}
+
+.right .heros {
+    display: flex;
+    text-align: center;
+}
+
+#profile ul {
+    margin: 2rem 0;
+}
+
+#profile li {
+    border-bottom: 1px solid green;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#profile li:last-child {
+    border-bottom: none;
+}
+
+#profile a {
+    pointer-events: none;
+}
+
+.text {
+    text-align: center;
+}
+
+.right .heros img {
+    max-width: 80%;
+    border-radius: 50%;
+    border: solid 2px gray;
+    margin-bottom: 1rem;
+}
+
+.wrapper {
+    background-color: #b3e3b9;
+    border: 1px solid green;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.login label {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.login input {
+    background-color: #FFF;
+    width: 100%;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.login button {
+    width: 100%;
+    font-size: small;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    color: #FFF;
+    background-color: #049107;
+    border:1px solid green;
+    border-radius: 5px;
+}
+
+.weather_test {
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
+#ww_23a0f9fc2e0ef {
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+#diary button {
+    width: 100%;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.5rem;
+    color: #FFF;
+    background-color: #049107;
+    border:1px solid green;
+    border-radius: 5px;
+}
+
+.diary_list {
+    height: 200px;
+    overflow: scroll;
+}
+
+.diary_list::-webkit-scrollbar{
+    display: none;
+}
+
+.diary_list li {
+    margin: 0.5rem 0;
+}
+
+.diary_list li a:hover {
+    color: blue;
+}
+
+.weather_count {
+    margin: 2rem 0.5rem;
+}
+
+.weather_count h5 {
+    font-size: 1rem;
+}
+
+.count_sec {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0rem;
+}
+
+.count_sec p {
+    border: 2.5px groove green;
+    border-radius: 5px;
+}
+
+.count_sec div {
+    width: 25%;
+    text-align: center;
+}
+
+.count_sec img {
+    border: 0.5px solid #2d2d2d;
+    border-radius: 60px;
+    margin: 1rem 0rem;
+}
+
+.weather_count button {
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 0.25rem 0.5rem;
+    color: #FFF;
+    background-color: #049107;
+    border:1px solid green;
+    border-radius: 5px;
+}
+
+/* ---------------footer------------- */
+
+.site-foot {
+    position: relative;
+}
+
+.site-foot img {
+    width: 100%;
+    height: 5vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.site-foot p {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:0;
+    margin:0;
+    font-size:1rem;
+    color: lightgreen;
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+                -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+                0px 1px 0 #FFF,  0-1px 0 #FFF,
+                -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+@media screen and (max-width: 1030px) {
+    .search-area ul {
+        display: block;
+    }
+    .search-area li {
+        text-align: center;
+        border-bottom: 1px solid #64bf5e;
+        padding: 0.5rem 0rem;
+    }
+    .search-area li:last-child {
+        border-bottom: none;
+    }
+    .search-area form {
+        display: block;
+    }
+    .search-area form input {
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+    }
+    .search-area button {
+        display: block;
+        margin: 0 auto;
+    }
+    .container {
+        display: block;
+    }
+    .left , .main , .right {
+        width: 100%;
+        margin-bottom: 4rem;
+    }
+    .main , .right {
+        border-top: 1px solid #64bf5e;
+    } 
+    #profile {
+        display: flex;
+        justify-content: center;
+        margin: 3rem 3rem;
+    }
+    #profile my-component {
+        margin-right: 1rem;
+    }
+    .right .heros {
+        align-items: center;
+    }
+    #profile ul {
+        margin-left: 1rem;
+    }
+    .content {
+        display: block;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+    .content .contImg {
+        width: 100%;
+    }
+    
+    .content .contText {
+        width: 100%;
+        margin-top: 2rem;
+        font-size: large;
+    }
+    #scriptTwo {
+        flex-direction:  none;
+    }
+}
